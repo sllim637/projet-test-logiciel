@@ -13,8 +13,12 @@ public class SommeArgent {
     public String getUnite() {
         return unite;
     }
-    public SommeArgent add(SommeArgent m) {
-        return new SommeArgent(getQuantite()+m.getQuantite(), getUnite());
+    public SommeArgent add(SommeArgent m) throws UniteDistincteException{
+        if (!m.getUnite().equals(this.getUnite())) {
+            throw new UniteDistincteException(this, m);
+        }
+        else
+            return new SommeArgent(getQuantite()+m.getQuantite(), getUnite());
     }
     @Override
     public int hashCode() {
