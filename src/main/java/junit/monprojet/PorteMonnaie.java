@@ -11,7 +11,7 @@ public class PorteMonnaie {
     public PorteMonnaie() {
 
         contenu = new HashMap<String, Integer>();
-        contenu.put("€",10);
+
     }
 
     public void ajouteSomme(SommeArgent sa) {
@@ -29,11 +29,24 @@ public class PorteMonnaie {
             String key = entry.getKey();
             int value = entry.getValue();
             totalString += key + "" + value + "\n";
-
         }
         System.out.println("the returned value is :" + totalString);
         return totalString;
     }
+    @Override
+    public boolean equals(Object obj) {
 
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        PorteMonnaie porteMonnaie = (PorteMonnaie) obj;
+        for (Map.Entry<String, Integer> entry : porteMonnaie.contenu.entrySet()) {
+            String key = entry.getKey();
+            int value = entry.getValue();
+            if(!((this.contenu.containsKey(key)) && (this.contenu.get(key) == value)) ){
+               return false;
+            }
+        }
+        return true;
+    }
 
 }
