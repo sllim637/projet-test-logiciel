@@ -3,6 +3,8 @@ package org.example;
 import junit.monprojet.PorteMonnaie;
 import junit.monprojet.SommeArgent;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -20,6 +22,8 @@ public class Main {
         PorteMonnaie porteMonnaie2 = new PorteMonnaie();
         porteMonnaie2.ajouteSomme(sommeArgent2);
         System.out.println(porteMonnaie1.equals(porteMonnaie2));
+
+
 
     }
 }
